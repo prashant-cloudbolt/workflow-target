@@ -39,4 +39,5 @@ jobs:
     steps:
       - name: echo Retune Dispatch
         run: |
-          echo "Retune Dispatch"
+          echo "publish=${{ inputs.publish }}"
+          echo "environment=${{ inputs.environment }}"
