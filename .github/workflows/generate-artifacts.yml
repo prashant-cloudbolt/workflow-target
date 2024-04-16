@@ -1,0 +1,42 @@
+name: Generate Artifacts
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Should the workflow publish the content library?"
+        default: false
+        type: boolean
+      environment:
+        description: "Which environment should the workflow publish to?"
+        required: true
+        default: "Staging"
+        type: choice
+        options:
+          - Testing
+          - Staging
+          - Production
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - main
+      - develop
+
+defaults:
+  run:
+    shell: bash -le {0}
+
+jobs:
+  return-dispatch:
+    name: Retune Dispatch
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: echo Retune Dispatch
+        run: |
+          echo "Retune Dispatch"
