@@ -15,6 +15,9 @@ on:
           - Testing
           - Staging
           - Production
+      distinct_id:
+        description: "This input required to run the workflow from return-dispatch"
+
   pull_request:
     branches:
       - main
